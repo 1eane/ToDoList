@@ -15,18 +15,18 @@ function addTodo(event) {
   event.preventDefault();
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
-  //Créer le Li
+
   const newTodo = document.createElement("li");
   newTodo.innerText = todoInput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
   saveLocalTodos(todoInput.value);
-  //Bouton Check
+
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
   completedButton.classList.add("complete-btn");
   todoDiv.appendChild(completedButton);
-  //Bouton Supprimer
+
   const trashButton = document.createElement("button");
   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   trashButton.classList.add("trash-btn");
@@ -79,7 +79,6 @@ function filterTodo(e) {
 }
 
 function saveLocalTodos(todo) {
-  //Checker si il y a des items existants
   let todos;
   if (localStorage.getItem("todos") === null) {
     todos = [];
@@ -100,17 +99,17 @@ function getTodos() {
   todos.forEach(function (todo) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todo");
-    //Créer le Li
+
     const newTodo = document.createElement("li");
     newTodo.innerText = todo;
     newTodo.classList.add("todo-item");
     todoDiv.appendChild(newTodo);
-    //Bouton Check
+
     const completedButton = document.createElement("button");
     completedButton.innerHTML = '<i class="fas fa-check"></i>';
     completedButton.classList.add("complete-btn");
     todoDiv.appendChild(completedButton);
-    //Bouton Supprimer
+
     const trashButton = document.createElement("button");
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add("trash-btn");
