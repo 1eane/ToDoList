@@ -13,7 +13,6 @@
 //FUNCTIONS
 function addTodo(event) {
   event.preventDefault();
-  //Todo DIV
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
   //Créer le Li
@@ -21,7 +20,7 @@ function addTodo(event) {
   newTodo.innerText = todoInput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
-  //Ajouter la todo au localstorage
+  //Ajouter
   saveLocalTodos(todoInput.value);
   //Bouton Check
   const completedButton = document.createElement("button");
@@ -33,7 +32,7 @@ function addTodo(event) {
   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   trashButton.classList.add("trash-btn");
   todoDiv.appendChild(trashButton);
-  //AJOUTER NOTRE TODO À TODO-LIST
+  //AJOUTER
   todoList.appendChild(todoDiv);
   todoInput.value = "";
 }
@@ -55,4 +54,29 @@ function deleteCheck(e) {
     const todo = item.parentElement;
     todo.classList.toggle("completed");
   }
+}
+
+function filterTodo(e) {
+  const todos = todoList.childNodes;
+  todos.forEach(function (todo) {
+    switch (e.target.value) {
+      case "all":
+        todo.style.display = "flex";
+        break;
+      case "completed":
+        if (todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+      case "uncompleted":
+        if (!todo.classList.contains("completed")) {
+          todo.style.display = "flex";
+        } else {
+          todo.style.display = "none";
+        }
+        break;
+    }
+  });
 }
