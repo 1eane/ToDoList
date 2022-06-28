@@ -9,3 +9,31 @@
     todoButton.addEventListener("click", addTodo);
     todoList.addEventListener("click", deleteCheck);
     filterOption.addEventListener("input", filterTodo);
+
+//FUNCTIONS
+function addTodo(event) {
+  event.preventDefault();
+  //Todo DIV
+  const todoDiv = document.createElement("div");
+  todoDiv.classList.add("todo");
+  //Créer le Li
+  const newTodo = document.createElement("li");
+  newTodo.innerText = todoInput.value;
+  newTodo.classList.add("todo-item");
+  todoDiv.appendChild(newTodo);
+  //Ajouter la todo au localstorage
+  saveLocalTodos(todoInput.value);
+  //Bouton Check
+  const completedButton = document.createElement("button");
+  completedButton.innerHTML = '<i class="fas fa-check"></i>';
+  completedButton.classList.add("complete-btn");
+  todoDiv.appendChild(completedButton);
+  //Bouton Supprimer
+  const trashButton = document.createElement("button");
+  trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+  trashButton.classList.add("trash-btn");
+  todoDiv.appendChild(trashButton);
+  //AJOUTER NOTRE TODO À TODO-LIST
+  todoList.appendChild(todoDiv);
+  todoInput.value = "";
+}
