@@ -1,14 +1,14 @@
 //SELECTEURS
-    const todoInput = document.querySelector(".todo-input");
-    const todoButton = document.querySelector(".todo-button");
-    const todoList = document.querySelector(".todo-list");
-    const filterOption = document.querySelector(".filter-todo");
+const todoInput = document.querySelector(".todo-input");
+const todoButton = document.querySelector(".todo-button");
+const todoList = document.querySelector(".todo-list");
+const filterOption = document.querySelector(".filter-todo");
 
 //ECOUTEURS
-    document.addEventListener("DOMContentLoaded", getTodos);
-    todoButton.addEventListener("click", addTodo);
-    todoList.addEventListener("click", deleteCheck);
-    filterOption.addEventListener("input", filterTodo);
+document.addEventListener("DOMContentLoaded", getTodos);
+todoButton.addEventListener("click", addTodo);
+todoList.addEventListener("click", deleteCheck);
+filterOption.addEventListener("input", filterTodo);
 
 //FUNCTIONS
 function addTodo(event) {
@@ -20,7 +20,6 @@ function addTodo(event) {
   newTodo.innerText = todoInput.value;
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
-  //Ajouter
   saveLocalTodos(todoInput.value);
   //Bouton Check
   const completedButton = document.createElement("button");
@@ -32,14 +31,12 @@ function addTodo(event) {
   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
   trashButton.classList.add("trash-btn");
   todoDiv.appendChild(trashButton);
-  //AJOUTER
   todoList.appendChild(todoDiv);
   todoInput.value = "";
 }
 
 function deleteCheck(e) {
   const item = e.target;
-  //DELETE
   if (item.classList[0] === "trash-btn") {
     const todo = item.parentElement;
     todo.classList.add("fall");
@@ -93,18 +90,6 @@ function saveLocalTodos(todo) {
   localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function saveLocalTodos(todo) {
-  //Checker si il y a des items existants
-  let todos;
-  if (localStorage.getItem("todos") === null) {
-    todos = [];
-  } else {
-    todos = JSON.parse(localStorage.getItem("todos"));
-  }
-  todos.push(todo);
-  localStorage.setItem("todos", JSON.stringify(todos));
-}
-
 function getTodos() {
   let todos;
   if (localStorage.getItem("todos") === null) {
@@ -130,7 +115,6 @@ function getTodos() {
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add("trash-btn");
     todoDiv.appendChild(trashButton);
-    //AJOUTER
     todoList.appendChild(todoDiv);
   });
 }
