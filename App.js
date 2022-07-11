@@ -1,42 +1,28 @@
 //SELECTEURS
 const todoInput = document.querySelector(".todo-input");
-// const todoInput = document.querySelector
 const todoButton = document.querySelector(".todo-button");
-// const todoButton = document.querySelector
 const todoList = document.querySelector(".todo-list");
-// const todoList = document.querySelector
 const filterOption = document.querySelector(".filter-todo");
-// const filterOption = document.querySelector
+
 
 //ECOUTEURS
 document.addEventListener("DOMContentLoaded", getTodos);
-// document.addEventListener
 todoButton.addEventListener("click", addTodo);
-// todoButton.addEventListener
 todoList.addEventListener("click", deleteCheck);
-// todoList.addEventListener
 filterOption.addEventListener("input", filterTodo);
-// filterOption.addEventListener
 
 //FUNCTIONS
 function addTodo(event) {
   event.preventDefault();
-  // event.preventDefault();
   const todoDiv = document.createElement("div");
-  // const todoDiv = document.createElement
   todoDiv.classList.add("todo");
-  // todoDiv.classList.add
 
   const newTodo = document.createElement("li");
-  // const newTodo = document.createElement
   newTodo.innerText = todoInput.value;
-  // newTodo.innerText = todoInput.value
   newTodo.classList.add("todo-item");
-  // newTodo.classList.add
   todoDiv.appendChild(newTodo);
-  // todoDiv.appendChild(newTodo);
   saveLocalTodos(todoInput.value);
-  // saveLocalTodos(todoInput.value);
+
 
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
