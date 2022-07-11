@@ -21,14 +21,22 @@ filterOption.addEventListener("input", filterTodo);
 //FUNCTIONS
 function addTodo(event) {
   event.preventDefault();
+  // event.preventDefault();
   const todoDiv = document.createElement("div");
+  // const todoDiv = document.createElement
   todoDiv.classList.add("todo");
+  // todoDiv.classList.add
 
   const newTodo = document.createElement("li");
+  // const newTodo = document.createElement
   newTodo.innerText = todoInput.value;
+  // newTodo.innerText = todoInput.value
   newTodo.classList.add("todo-item");
+  // newTodo.classList.add
   todoDiv.appendChild(newTodo);
+  // todoDiv.appendChild(newTodo);
   saveLocalTodos(todoInput.value);
+  // saveLocalTodos(todoInput.value);
 
   const completedButton = document.createElement("button");
   completedButton.innerHTML = '<i class="fas fa-check"></i>';
