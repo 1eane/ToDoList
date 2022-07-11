@@ -10,9 +10,13 @@ const filterOption = document.querySelector(".filter-todo");
 
 //ECOUTEURS
 document.addEventListener("DOMContentLoaded", getTodos);
+// document.addEventListener
 todoButton.addEventListener("click", addTodo);
+// todoButton.addEventListener
 todoList.addEventListener("click", deleteCheck);
+// todoList.addEventListener
 filterOption.addEventListener("input", filterTodo);
+// filterOption.addEventListener
 
 //FUNCTIONS
 function addTodo(event) {
