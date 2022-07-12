@@ -13,13 +13,19 @@ filterOption.addEventListener("input", filterTodo);
 
 //FUNCTIONS
 function addTodo(event) {
+// function addTodo(event) {
   event.preventDefault();
+  // event.preventDefault();
   const todoDiv = document.createElement("div");
+  // const todoDiv = document.createElement("div");
   todoDiv.classList.add("todo");
+  //todoDiv.classList.add
 
 
   const newTodo = document.createElement("li");
+  // const newTodo = document.createElement("li");
   newTodo.innerText = todoInput.value;
+  // const newTodo = document.createElement("li");
   newTodo.classList.add("todo-item");
   todoDiv.appendChild(newTodo);
   saveLocalTodos(todoInput.value);
